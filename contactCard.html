@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Contact Card</title>
+        <script>
+            $(document).ready(function() {
+                $(document).on("click", 'button', function() {
+                    var name = $("input[name=firstname").val() + ' ' + $("input[name=lastname").val();
+                    var description = $("textarea").val();
+                    $('#contacts').append("<div id=card><h1>"+name+"</h1><h2 id='back'>Click for description</h2><p>"+description+"</p>");
+                    $('input[name=firstname]').val("");
+                    $('input[name=lastname]').val("");
+                    $('textarea').val("");
+                    return false;
+                });
+
+                $(document).on('click', '#card', function() {
+                    $(this).children().toggle();
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="background">
+            <form>
+                First name:
+                <input type="text" name="firstname"><br>
+                Last name:
+                <input type="text" name="lastname"><br><br>
+                Description:<br><br>
+                <textarea rows="5" cols="50" placeholder="Enter description"></textarea><br>
+                <button type="button">Add User</button>
+            </form>
+
+            <div id="contacts">
+                
+            </div>
+        </div>
+        
+    </body>
+</html>
